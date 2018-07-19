@@ -1,15 +1,26 @@
+// @flow
 import React from 'react'
 import { StyleSheet, Text, View } from 'react-native'
 import { Button } from 'react-native-material-ui'
 
-export default class ProfileScreen extends React.Component {
+type Props = {
+    navigation: {
+        navigate: *
+    }
+}
+
+type State = {
+    message: string
+}
+
+export default class Listings extends React.Component<Props, State> {
     state = {
-        message: 'Profiles'
+        message: 'Listings'
     }
 
     handleClick = () => {
         this.setState({
-            message: 'Profiles are cool!'
+            message: 'Listings are cool!'
         })
     }
 
@@ -30,6 +41,6 @@ const styles = StyleSheet.create({
         flex: 1,
         backgroundColor: '#fff',
         alignItems: 'center',
-        justifyContent: 'center'
+        justifyContent: 'space-between'
     }
 })
