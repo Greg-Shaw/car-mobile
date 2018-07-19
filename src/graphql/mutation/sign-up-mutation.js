@@ -1,14 +1,11 @@
-// @flow
 import environment from 'environment'
-import { type SignUpForm } from 'component/auth/sign-up'
 import { commitMutation, graphql } from 'react-relay'
-import { type signUpMutationResponse  } from './__generated__/signUpMutation.graphql'
 
-const mutation: * = graphql`
-	mutation signUpMutation($input: signUpMutationInput!) {
-		signUp(input: $input) {
-		    payload {
-		        user {
+const mutation = graphql`
+    mutation signUpMutation($input: signUpMutationInput!) {
+        signUp(input: $input) {
+            payload {
+                user {
                     firstName
                     lastName
                     email
@@ -16,18 +13,18 @@ const mutation: * = graphql`
                     createdAt
                 }
                 token
-		    }
-		}
-	}
+            }
+        }
+    }
 `
 
-export default (credentials: SignUpForm, callback: (data: any, error: any) => any) => {
+export default (credentials, callback) => {
     commitMutation(environment, {
         mutation,
-        onError: (error: *) => {
+        onError: (error) => {
             callback(null, error)
         },
-        updater: (store: *, { signUp }: signUpMutationResponse) => {
+        updater: (store, { signUp }) => {
             callback(signUp, null)
         },
         variables: { input: { payload: credentials } }

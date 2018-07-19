@@ -1,5 +1,6 @@
 import React from 'react'
-import { StyleSheet, Text, View, Button } from 'react-native'
+import { StyleSheet, Text, View } from 'react-native'
+import { Button } from 'react-native-material-ui'
 
 export default class ProfileScreen extends React.Component {
     state = {
@@ -18,7 +19,7 @@ export default class ProfileScreen extends React.Component {
         return (
             <View style={styles.container}>
                 <Text>{message}</Text>
-                <Button title="Boom!" onPress={this.handleClick} />
+                <Button primary={true} text="Boom!" onPress={this.handleClick} />
             </View>
         )
     }

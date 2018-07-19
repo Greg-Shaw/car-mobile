@@ -6,7 +6,8 @@ import * as React from 'react'
 // import Page from 'component/core/page'
 // import { withRouter } from 'found'
 import { Text } from 'react-native'
-class SignUp extends React.Component {
+
+class SignUp extends React.Component<*> {
     // state = {
     //     error: null,
     //     form: {
