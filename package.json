@@ -15,6 +15,12 @@
     "prepush": "yarn test",
     "updateSchema": "graphql get-schema"
   },
+  "lint-staged": {
+    "*.+(js)": [
+      "yarn lint",
+      "git add"
+    ]
+  },
   "jest": {
     "preset": "jest-expo"
   },
@@ -24,14 +30,14 @@
     "classnames": "^2.2.5",
     "expo": "^27.0.1",
     "farce": "^0.2.6",
-    "flow-bin": "^0.73.0",
     "found": "^0.3.11",
     "found-relay": "0.3.0-alpha.13",
     "graphql": "^0.13.2",
-    "react": "^16.3.2",
+    "prop-types": "^15.6.2",
+    "react": "16.3.1",
     "react-automata": "^2.0.0",
     "react-color": "^2.14.1",
-    "react-dom": "^16.3.2",
+    "react-dom": "16.3.1",
     "react-native": "~0.55.2",
     "react-navigation": "^2.7.0",
     "react-relay": "^1.6.0",
@@ -41,6 +47,8 @@
   },
   "devDependencies": {
     "babel-eslint": "^8.2.6",
+    "babel-plugin-transform-flow-strip-types": "^6.22.0",
+    "babel-preset-flow": "^6.23.0",
     "eslint": "^4.19.1",
     "eslint-config-airbnb": "^16.1.0",
     "eslint-plugin-babel": "^5.1.0",
@@ -52,6 +60,7 @@
     "eslint-plugin-jest": "^21.17.0",
     "eslint-plugin-jsx-a11y": "^6.0.3",
     "eslint-plugin-react": "^7.9.1",
+    "flow-bin": "^0.73.0",
     "graphql-cli": "^2.16.2",
     "husky": "^0.14.3",
     "jest-expo": "~27.0.0",

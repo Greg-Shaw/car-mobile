@@ -1,29 +1,36 @@
 import React from 'react'
+import { shape, func } from 'prop-types'
 import { StyleSheet, Text, View, Button } from 'react-native'
+import Navigation from '../common/navigation'
 
 export default class HomeScreen extends React.Component {
-	state = {
-	    message: 'Cars'
-	}
+    static propTypes = {
+        navigation: shape({
+            navigate: func
+        })
+    }
 
-	handleClick = () => {
-	    this.setState({
-	        message: 'Cars are cool!'
-	    })
-	}
+    state = {
+        message: 'Cars'
+    }
 
-	render() {
-	    const { navigate } = this.props.navigation
-	    const { message } = this.state
+    handleClick = () => {
+        this.setState({
+            message: 'Cars are cool!'
+        })
+    }
 
-	    return (
-	        <View style={styles.container}>
-	            <Text>{message}</Text>
-	            <Button title="Boom!" onPress={this.handleClick} />
-	            <Button title="Profile" onPress={() => navigate('Profile')} />
-	        </View>
-	    )
-	}
+    render() {
+        const { message } = this.state
+
+        return (
+            <View style={styles.container}>
+                <Text>{message}</Text>
+                <Button title="Boom!" onPress={this.handleClick} />
+                <Navigation navigation={this.props.navigation} />
+            </View>
+        )
+    }
 }
 
 const styles = StyleSheet.create({
@@ -31,6 +38,6 @@ const styles = StyleSheet.create({
         flex: 1,
         backgroundColor: '#fff',
         alignItems: 'center',
-        justifyContent: 'center'
+        justifyContent: 'space-between'
     }
 })
