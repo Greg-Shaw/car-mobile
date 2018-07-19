@@ -7,6 +7,10 @@
         }],
         "transform-react-jsx-source"
       ]
+    },
+    "test": {
+        "plugins": ["transform-es2015-modules-commonjs"],
+        "sourceMap": "inline"
     }
   }
 }
